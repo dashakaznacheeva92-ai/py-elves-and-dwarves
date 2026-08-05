@@ -4,7 +4,11 @@ from app.players.player import Player
 class Elf(Player):
     def __init__(self, nickname: str, musical_instrument: str) -> None:
         super().__init__(nickname)
-        self.musical_instrument = musical_instrument
+        self._musical_instrument = musical_instrument
+
+    @property
+    def musical_instrument(self) -> str:
+        return self._musical_instrument
 
     def play_elf_song(self) -> None:
         print(f"{self.nickname} is playing a "
